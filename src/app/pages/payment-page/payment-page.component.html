@@ -1,0 +1,52 @@
+<div class="payment-page-container" fxFlex fxLayout="row" style="height: 100vh">
+  <div
+    class="payment-page-division"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <span class="payment-page-slogan">Credit Card Number: 1111 1111 1111 1111</span>
+    <span class="payment-page-slogan">Card Holder: Nurullah Altas</span>
+    <span class="payment-page-slogan">Expiration Date: 11/2021</span>
+    <span class="payment-page-slogan">Security Code: 111</span>
+  </div>
+  <div class="card-form-division" fxLayout="column" fxLayoutAlign="center center">
+    <mat-card class="card-form-card">
+      <mat-card-header>
+        <mat-card-subtitle>Credit Card Information</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div
+          class="card-form-container"
+          fxLayout="column"
+          fxLayoutAlign="center center"
+        >
+          <mat-form-field>
+            <mat-label>Credit Card Number</mat-label>
+            <input type="text" matInput [formControl]="creditCardNumberValidator" required/>
+            <mat-error *ngIf="creditCardNumberValidator.invalid">{{getCardNumberErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Card Holder</mat-label>
+            <input type="text" matInput [formControl]="cardHolderValidator" required/>
+            <mat-error *ngIf="cardHolderValidator.invalid">{{getCardHolderErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Expiration Date</mat-label>
+            <input type="month" matInput [formControl]="expirationDateValidator" required/>
+            <mat-error *ngIf="expirationDateValidator.invalid">{{getExpirationDateErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Security Code</mat-label>
+            <input type="text" matInput [formControl]="securityCodeValidator"/>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Amount</mat-label>
+            <input type="number" matInput placeholder="Amount" [formControl]="amountValidator" required/>
+            <mat-error *ngIf="amountValidator.invalid">{{getAmountErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <button class="form-submit-button" mat-raised-button (click)="submit()">Submit</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

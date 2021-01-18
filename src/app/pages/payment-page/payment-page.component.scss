@@ -1,0 +1,96 @@
+.sidenav-toggle-button {
+  padding: 20px 30px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff9a8b 0%, #ff6987 100%);
+  color: white;
+  font-weight: bold;
+  font-size: 45px;
+}
+.payment-page-division {
+  padding: 30px;
+  flex: 6;
+  background-size: cover;
+}
+
+.payment-page-slogan {
+  font-weight: 600;
+  font-size: 25px;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #404045 0%, #2d2d31 100%);
+  margin-bottom: 40px;
+}
+.card-form-division {
+  flex: 2;
+  background: linear-gradient(135deg, #404045 0%, #2d2d31 100%);
+}
+.card-form-card {
+  margin: 30px 15px;
+}
+mat-card-subtitle {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form-submit-button {
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 8px;
+  background-image: linear-gradient(
+      to right,
+      #f6d365 0%,
+      #fda085 51%,
+      #f6d365 100%
+  );
+  &:hover {
+    background-position: right center;
+  }
+}
+
+.payment-page-division {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+  -moz-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
