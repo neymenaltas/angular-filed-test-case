@@ -93,7 +93,7 @@ export class PaymentPageComponent implements OnInit, OnDestroy {
 }
 
 function ValidateAmount(control: AbstractControl): {[key: string]: any} | null  {
-  if (control.value && control.value < 0) {
+  if (control.value && control.value <= 0) {
     return { invalidAmount: true };
   }
   return null;
