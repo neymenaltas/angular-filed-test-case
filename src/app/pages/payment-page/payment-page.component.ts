@@ -86,7 +86,6 @@ export class PaymentPageComponent implements OnInit, OnDestroy {
       ).subscribe((res) => {
           this.toastr.info(res.toString());
       }, err => {
-        console.log(err);
         this.toastr.error(err.error.message);
       });
     }
