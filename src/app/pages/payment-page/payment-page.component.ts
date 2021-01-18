@@ -15,7 +15,7 @@ export class PaymentPageComponent implements OnInit, OnDestroy {
 
   public creditCardNumberValidator: FormControl = new FormControl('', [Validators.required]);
   public cardHolderValidator: FormControl = new FormControl('', [Validators.required]);
-  public amountValidator: FormControl = new FormControl('', [Validators.required, ValidateAmount]);
+  public amountValidator: FormControl = new FormControl('', [Validators.required, Validators.min(0.000001)]);
   public expirationDateValidator: FormControl = new FormControl('', [Validators.required, ValidateExpirationDate]);
   public securityCodeValidator: FormControl = new FormControl('');
 
@@ -44,24 +44,26 @@ export class PaymentPageComponent implements OnInit, OnDestroy {
   }
 
   public getAmountErrorMessage(): string {
-    if (this.amountValidator.hasError('invalidAmount')) {
-      return 'You must a value greater than 0';
-    }
     if (this.amountValidator.hasError('required')) {
       return 'You must enter a value';
+    }
+    if (this.amountValidator.hasError('min')) {
+      return 'You must a value greater than 0';
     }
   }
 
   public getExpirationDateErrorMessage(): string {
-    if (this.expirationDateValidator.hasError('invalidExpirationDate')) {
-      return 'You must select a date which is not passed';
-    }
     if (this.expirationDateValidator.hasError('required')) {
       return 'You must select a date';
     }
+    if (this.expirationDateValidator.hasError('invalidExpirationDate')) {
+      return 'You must select a date which is not passed';
+    }
+
   }
 
   public submit() {
+    console.log(this.amountValidator);
     if (
       this.creditCardNumberValidator.invalid ||
       this.cardHolderValidator.invalid ||
@@ -90,13 +92,6 @@ export class PaymentPageComponent implements OnInit, OnDestroy {
       });
     }
   }
-}
-
-function ValidateAmount(control: AbstractControl): {[key: string]: any} | null  {
-  if (control.value && control.value <= 0) {
-    return { invalidAmount: true };
-  }
-  return null;
 }
 
 function ValidateExpirationDate(control: AbstractControl): {[key: string]: any} | null  {
