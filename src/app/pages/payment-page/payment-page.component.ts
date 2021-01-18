@@ -83,8 +83,8 @@ export class PaymentPageComponent implements OnInit, OnDestroy {
       };
       this.transferSubscription = this.paymentService.sendTransfer(creditTransfer).pipe(
         take(1)
-      ).subscribe((res) => {
-          this.toastr.info(res.toString());
+      ).subscribe((res: CreditTransferDto) => {
+          this.toastr.info(`${res.cardHolder}, your payment has been successfully received` );
       }, err => {
         this.toastr.error(err.error.message);
       });

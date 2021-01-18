@@ -29,7 +29,7 @@ export class FakeBackendHttpInterceptor implements HttpInterceptor {
         body.creditCardNumber === trueCreditTransfer.creditCardNumber &&
         body.expirationDate.getTime() === trueCreditTransfer.expirationDate.getTime() &&
         body.securityCode === trueCreditTransfer.securityCode) {
-        return of(new HttpResponse({ status: 200, body: 'Payment is successful' })).pipe(delay(500));
+        return of(new HttpResponse({ status: 200, body})).pipe(delay(500));
       } else {
         return throwError({ error: { message: 'Credit card information is wrong' } });
       }
