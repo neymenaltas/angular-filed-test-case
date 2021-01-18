@@ -24,8 +24,6 @@ export class FakeBackendHttpInterceptor implements HttpInterceptor {
     const { url, method } = req;
     if (url.endsWith('/transfer') && method === 'POST') {
       const { body } = req.clone();
-      console.log(body);
-      console.log(trueCreditTransfer);
       if (
         body.cardHolder === trueCreditTransfer.cardHolder &&
         body.creditCardNumber === trueCreditTransfer.creditCardNumber &&
